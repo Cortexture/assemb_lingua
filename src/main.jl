@@ -3,7 +3,7 @@ text_vector = readlines(file);
 close(file)
 
 words = replace(text_vector[1],
-                  "," => "", "." => "", "'" => "", 
+                  "," => "", "." => "",
                   "—" => " ") |> split
 
 # now need to get IPA encodings for the words here
