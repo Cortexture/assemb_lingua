@@ -3,6 +3,8 @@ words = replace(text_vector[1],
                   "," => "", "." => "",
                   "—" => " ") |> split
 
+println("The type of words: ", typeof(words))
+
 cmu_dataset = open("../data/cmudict-0.7b") |> readlines
 
 entries = split.(cmu_dataset, "  ")
