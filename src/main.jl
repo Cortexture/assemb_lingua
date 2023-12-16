@@ -5,6 +5,7 @@ words = replace(text_vector[1],
 
 println("The type of words: ", typeof(words))
 
+#=
 cmu_dataset = open("../data/cmudict-0.7b") |> readlines
 
 entries = split.(cmu_dataset, "  ")
@@ -22,4 +23,4 @@ println("The size of entries[1]: ", size(entries[1]))
 # now need to get IPA encodings for the words here
 # then re-add the punctuation
 
-
+=#
