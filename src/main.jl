@@ -1,9 +1,15 @@
 text_vector = open("../data/exploring_the_wonders_of_nature.txt") |> readlines
 words = replace(text_vector[1],
                   "," => "", "." => "",
-                  "—" => " ") |> split
+                  "—" => " ") |> split .|> String
 
 println("The type of words: ", typeof(words))
+println("The size of words: ", size(words))
+println("The length of words: ", length(words))
+
+for word ∈ words 
+    println(word)
+end
 
 #=
 cmu_dataset = open("../data/cmudict-0.7b") |> readlines
