@@ -1,7 +1,7 @@
 text_vector = open("../data/exploring_the_wonders_of_nature.txt") |> readlines
 words = replace(text_vector[1],
                   "," => "", "." => "",
-                  "—" => " ") |> split .|> uppercase
+                  "—" => " ") |> split
 
 cmu_dataset = open("../data/cmudict-0.7b") |> readlines
 
