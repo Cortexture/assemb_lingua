@@ -1,32 +1,21 @@
+using Pipe
+
 text_vector = open("../data/exploring_the_wonders_of_nature.txt") |> readlines
 words = replace(text_vector[1],
                   "," => "", "." => "",
                   "—" => " ") |> split .|> String
-
-println("The type of words: ", typeof(words))
-println("The size of words: ", size(words))
-println("The length of words: ", length(words))
-
-for word ∈ words 
-    println(word)
-end
-
-#=
 cmu_dataset = open("../data/cmudict-0.7b") |> readlines
-
-entries = split.(cmu_dataset, "  ")
-
-println("The type of entries: ", typeof(entries))
-println("The size of entries: ", size(entries))
-println("The type of entries[1]: ", typeof(entries[1]))
-println("The size of entries[1]: ", size(entries[1]))
+entries_vector = @pipe split.(cmu_dataset, "  ") |> map.(String, _)
+mykeys = Vector{String}()
+myvalues = Vector{String}()
+for entry ∈ entries_vector
+    push!(mykeys, entry[1])
+    push!(myvalues, entry[2])
+end
+entries = Dict(mykeys .=> myvalues)
 
 # ARPAbet_dictionary = set_dictionary(cmu_dataset)
 
 
-# need to remove the punctuation lines and the header of the text
-
 # now need to get IPA encodings for the words here
 # then re-add the punctuation
-
-=#
